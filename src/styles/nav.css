@@ -1,0 +1,23 @@
+.nav {
+  background-color: var(--clr-primary-400);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1em;
+  list-style: none;
+}
+
+.nav__link > a {
+  color: var(--clr-neutral-200);
+  text-decoration: none;
+}
+
+.nav__link.active {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

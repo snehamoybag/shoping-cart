@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--clr-primary-200);
+}
+
+.header__logo-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem; /* minimum gap */
+  padding: 2em 1.5em;
+}

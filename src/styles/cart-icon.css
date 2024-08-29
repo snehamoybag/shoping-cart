@@ -1,0 +1,8 @@
+.cart-icon {
+  --size: 1.6rem;
+  width: var(--size);
+  height: var(--size);
+  background-image: url("../assets/icons/shopping_cart.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}

@@ -1,0 +1,10 @@
+.logo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.logo__img {
+  width: 1rem;
+  object-fit: contain;
+}
