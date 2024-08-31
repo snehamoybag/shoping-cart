@@ -2,10 +2,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.25em;
-  padding: 0.25em 0.5em;
-  background-color: hsla(100, 100%, 25%, 1);
+  padding: 0.25em;
   text-align: center;
+  font-size: 0.875rem; /* 14px */
   color: var(--clr-neutral-200);
   border-radius: 0.25rem;
+}
+
+.rating::after {
+  --size: 0.75em;
+
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background-image: url("../assets/icons/star_hollow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.rating.good {
+  background-color: hsla(100, 100%, 25%, 1);
+}
+
+.rating.decent {
+  background-color: hsla(35, 100%, 50%, 1);
+}
+
+.rating.bad {
+  background-color: hsla(0, 100%, 25%, 1);
 }

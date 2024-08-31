@@ -21,18 +21,6 @@
   right: 0;
 }
 
-.item-preview__rating::after {
-  --size: 1rem;
-
-  content: "";
-  width: var(--size);
-  height: var(--size);
-  background-image: url("../assets/icons/star_hollow.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
 .item-preview__text-wrapper {
   margin-top: 1.5rem;
 }
