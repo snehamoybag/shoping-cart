@@ -1,0 +1,13 @@
+.items {
+  padding: 1em;
+}
+
+.items__list {
+  --grid-column-size: 120px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--grid-column-size));
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+}

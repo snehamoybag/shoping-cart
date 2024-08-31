@@ -6,9 +6,9 @@ const Logo = () => {
   return (
     <div className="logo">
       <img src={logoImg} alt="logo" className="logo__img" />
-      <h2 className="logo__text">
-        <span className="sr-only">F</span>akest Fashion
-      </h2>
+      <h1 className="logo__text">
+        <span className="sr-only">F</span>ake Fashion
+      </h1>
     </div>
   );
 };
