@@ -1,12 +1,13 @@
-import PropTypes from "prop-types";
 import Item from "../components/Item";
+import { useOutletContext, useParams } from "react-router-dom";
+import getItemById from "../utils/getItemById";
 
-const ItemPage = ({ item }) => {
+const ItemPage = () => {
+  const itemsList = useOutletContext();
+  const { itemId } = useParams();
+
+  const item = getItemById(Number(itemId), itemsList);
   return <Item item={item} />;
-};
-
-ItemPage.propTypes = {
-  item: PropTypes.object.isRequired,
 };
 
 export default ItemPage;

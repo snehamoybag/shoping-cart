@@ -1,12 +1,14 @@
+import { useOutletContext } from "react-router-dom";
 import Hero from "../components/Hero";
 import ItemsContainer from "../components/ItemsContainer";
-import dummyData from "../data/dummyData";
 
 const HomePage = () => {
+  const itemsData = useOutletContext();
+
   return (
     <main>
       <Hero />
-      <ItemsContainer itemsList={dummyData} />
+      <ItemsContainer itemsList={itemsData} />
     </main>
   );
 };

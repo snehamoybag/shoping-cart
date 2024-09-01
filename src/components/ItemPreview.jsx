@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const ItemPreview = ({ item }) => {
   const { id, title, image, price, rating } = item;
-  const itemPageLink = `item/${title}`;
+  const itemPageLink = `item/${id}`;
 
   return (
     <div className="item-preview">
@@ -18,7 +18,7 @@ const ItemPreview = ({ item }) => {
       </div>
       <div className="item-preview__text-wrapper">
         <Link to={itemPageLink}>
-          <h2 className="item-preview__name">{item.title}</h2>
+          <h2 className="item-preview__name">{title}</h2>
         </Link>
         <div className="item-preview__price-wrapper">
           <p className="item-preview__discount-price">

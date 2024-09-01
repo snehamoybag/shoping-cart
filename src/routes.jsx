@@ -17,7 +17,7 @@ const routes = [
         element: <AboutPage />,
       },
       {
-        path: "item/:name",
+        path: "item/:itemId",
         element: <ItemPage />,
       },
     ],
