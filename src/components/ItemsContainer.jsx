@@ -3,12 +3,15 @@ import PropTypes from "prop-types";
 import ItemPreview from "./ItemPreview";
 
 const ItemsContainer = ({ title, itemsList }) => {
-  const itemEls = itemsList.map((item, index) => {
-    const { img, name, price, rating } = item;
-
+  const itemEls = itemsList.map((item) => {
     return (
-      <li key={index}>
-        <ItemPreview imgUrl={img} name={name} price={price} rating={rating} />
+      <li key={item.id}>
+        <ItemPreview
+          imgUrl={item.image}
+          name={item.title}
+          price={item.price}
+          rating={item.rating.rate}
+        />
       </li>
     );
   });
