@@ -2,16 +2,24 @@ import "../styles/sr-only.css";
 import "../styles/item-preview.css";
 import PropTypes from "prop-types";
 import Rating from "./Rating";
+import { Link } from "react-router-dom";
 
-const ItemPreview = ({ imgUrl, name, rating, price }) => {
+const ItemPreview = ({ item }) => {
+  const { id, title, image, price, rating } = item;
+  const itemPageLink = `item/${title}`;
+
   return (
     <div className="item-preview">
       <div className="item-preview__img-wrapper">
-        <img src={imgUrl} alt={name} className="item-preview__img" />
-        <Rating rating={rating} />
+        <Link to={itemPageLink}>
+          <img src={image} alt={title} className="item-preview__img" />
+        </Link>
+        <Rating rating={rating.rate} />
       </div>
       <div className="item-preview__text-wrapper">
-        <h2 className="item-preview__name">{name}</h2>
+        <Link to={itemPageLink}>
+          <h2 className="item-preview__name">{item.title}</h2>
+        </Link>
         <div className="item-preview__price-wrapper">
           <p className="item-preview__discount-price">
             <span className="sr-only">Discount Price: </span>${price}
@@ -27,10 +35,7 @@ const ItemPreview = ({ imgUrl, name, rating, price }) => {
 };
 
 ItemPreview.propTypes = {
-  imgUrl: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 export default ItemPreview;

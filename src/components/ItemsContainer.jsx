@@ -6,12 +6,7 @@ const ItemsContainer = ({ title, itemsList }) => {
   const itemEls = itemsList.map((item) => {
     return (
       <li key={item.id}>
-        <ItemPreview
-          imgUrl={item.image}
-          name={item.title}
-          price={item.price}
-          rating={item.rating.rate}
-        />
+        <ItemPreview item={item} />
       </li>
     );
   });
