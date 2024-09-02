@@ -3,11 +3,9 @@
 }
 
 .items__list {
-  --grid-column-size: 120px;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, var(--grid-column-size));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
   list-style: none;
 }

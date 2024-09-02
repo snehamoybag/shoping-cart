@@ -1,16 +1,28 @@
 .item-preview {
+  display: grid;
+  grid-row-gap: 1rem;
+  height: 100%;
   padding: 1em;
-  border: 1px solid var(--clr-neutral-700);
+  background-color: var(--clr-neutral-100);
+  border: 1px solid hsla(var(--clr-neutral-700-hsl), 0.5);
   border-radius: 0.5rem;
+  transition: transform 200ms ease;
+}
+
+.item-preview a {
+  color: var(--clr-neutral-700);
+  text-decoration: none;
 }
 
 .item-preview__img-wrapper {
-  position: relative;
+  padding-bottom: 0.5em;
   border-bottom: 1px solid var(--clr-neutral-700);
+  position: relative;
 }
 
 .item-preview__img {
   width: 90%;
+  max-width: 250px;
   aspect-ratio: 1/1;
   margin: 0 auto;
 }
@@ -21,21 +33,16 @@
   right: 0;
 }
 
-.item-preview__text-wrapper {
-  margin-top: 1.5rem;
-}
-
 .item-preview__name {
-  font-size: 1.25rem;
   text-align: center;
 }
 
 .item-preview__price-wrapper {
+  align-self: end; /* this wrapper is a grid item */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 .item-preview__original-price {
