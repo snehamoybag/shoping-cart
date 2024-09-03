@@ -9,6 +9,10 @@
   transition: transform 200ms ease;
 }
 
+.item-preview > .item-price {
+  align-self: end;
+}
+
 .item-preview a {
   color: var(--clr-neutral-700);
   text-decoration: none;
@@ -35,21 +39,4 @@
 
 .item-preview__name {
   text-align: center;
-}
-
-.item-preview__price-wrapper {
-  align-self: end; /* this wrapper is a grid item */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.item-preview__original-price {
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-.item-preview__discount-price {
-  font-weight: 700;
 }
