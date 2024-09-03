@@ -1,8 +1,7 @@
 .rating {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
-  padding: 0.25em;
+  padding: 0.25em 0.35em;
   text-align: center;
   font-size: 0.875rem; /* 14px */
   color: var(--clr-neutral-200);
