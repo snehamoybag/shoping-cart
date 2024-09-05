@@ -1,17 +1,23 @@
-import Item from "../components/Item";
 import { useOutletContext, useParams } from "react-router-dom";
-import getItemById from "../utils/getItemById";
+import Item from "../components/Item";
 import ItemsList from "../components/ItemsList";
+import getItemById from "../utils/getItemById";
+import getMatchingItems from "../utils/getMatchingItems";
+import filterItems from "../utils/filterItems";
 
 const ItemPage = () => {
-  const itemsList = useOutletContext();
-  const { itemId } = useParams();
+  const items = useOutletContext();
 
-  const item = getItemById(Number(itemId), itemsList);
+  const { itemId } = useParams();
+  const item = getItemById(Number(itemId), items);
+
+  const sameCategoryItems = getMatchingItems("category", item.category, items);
+  const relatedItems = filterItems("id", item.id, sameCategoryItems); // do not show current item on related items
+
   return (
     <main>
       <Item item={item} />
-      <ItemsList title={"Related Items"} items={itemsList} />
+      <ItemsList title={"Related Products"} items={relatedItems} />
     </main>
   );
 };
