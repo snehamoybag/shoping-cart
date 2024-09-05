@@ -1,0 +1,51 @@
+import "../styles/sr-only.css";
+import "../styles/item-quantity.css";
+import "../styles/btn.css";
+import PropTypes from "prop-types";
+
+const ItemQuantity = ({
+  quantity,
+  handleInputChange,
+  handleIncrement,
+  handleDecrement,
+}) => {
+  return (
+    <div className="item-quantity">
+      <p className="item-quantity__title">Quantity</p>
+      <div className="item-quantity__btn-input-wrapper">
+        <button
+          type="button"
+          className="btn btn--increment"
+          onClick={handleIncrement}
+        >
+          <span className="sr-only">increment quantity</span>
+        </button>
+        <label className="item-quantity__label">
+          <span className="sr-only">type a quantity</span>
+          <input
+            type="text"
+            className="item-quantity__input"
+            value={quantity}
+            onChange={handleInputChange}
+          />
+        </label>
+        <button
+          type="button"
+          className="btn btn--decrement"
+          onClick={handleDecrement}
+        >
+          <span className="sr-only">decrement quantity</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+ItemQuantity.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func.isRequired,
+  handleDecrement: PropTypes.func.isRequired,
+};
+
+export default ItemQuantity;

@@ -1,0 +1,12 @@
+.buy-item {
+  display: grid;
+  justify-items: center;
+  background-color: var(--clr-neutral-100);
+  padding: 2em;
+}
+
+.buy-item__btns-wrapper {
+  display: grid;
+  gap: 0.625rem;
+  margin-top: 2rem;
+}

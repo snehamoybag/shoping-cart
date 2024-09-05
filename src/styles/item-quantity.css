@@ -1,0 +1,19 @@
+.item-quantity__title {
+  font-size: 0.875rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.item-quantity__btn-input-wrapper {
+  display: flex;
+  gap: 0.25rem;
+  width: 10rem;
+  margin-top: 0.5rem;
+}
+
+.item-quantity__input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid var(--clr-neutral-700);
+}
