@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import Hero from "../components/Hero";
-import ItemsContainer from "../components/ItemsContainer";
+import ItemsList from "../components/ItemsList";
 
 const HomePage = () => {
   const itemsData = useOutletContext();
@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
-      <ItemsContainer itemsList={itemsData} />
+      <ItemsList items={itemsData} />
     </main>
   );
 };

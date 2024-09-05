@@ -1,12 +1,12 @@
 import { describe, test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import ItemsContainer from "../ItemsContainer";
+import ItemsList from "../ItemsList";
 
 describe("ItemsContainer", () => {
   test("renders items category name, when available", () => {
     const title = "Lorem Impsum";
 
-    render(<ItemsContainer title={title} itemsList={[]} />);
+    render(<ItemsList title={title} itemsList={[]} />);
 
     const titleEl = screen.getByRole("heading");
 
@@ -15,7 +15,7 @@ describe("ItemsContainer", () => {
   });
 
   test("does not render any category name if not available", () => {
-    render(<ItemsContainer itemsList={[]} />);
+    render(<ItemsList itemsList={[]} />);
 
     expect(screen.queryByRole("heading")).not.toBeInTheDocument();
   });

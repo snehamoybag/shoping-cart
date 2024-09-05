@@ -7,7 +7,11 @@ const ItemPage = () => {
   const { itemId } = useParams();
 
   const item = getItemById(Number(itemId), itemsList);
-  return <Item item={item} />;
+  return (
+    <main>
+      <Item item={item} />
+    </main>
+  );
 };
 
 export default ItemPage;

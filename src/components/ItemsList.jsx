@@ -2,8 +2,8 @@ import "../styles/items.css";
 import PropTypes from "prop-types";
 import ItemPreview from "./ItemPreview";
 
-const ItemsContainer = ({ title, itemsList }) => {
-  const itemEls = itemsList.map((item) => {
+const ItemsList = ({ title, items }) => {
+  const itemEls = items.map((item) => {
     return (
       <li key={item.id}>
         <ItemPreview item={item} />
@@ -19,9 +19,9 @@ const ItemsContainer = ({ title, itemsList }) => {
   );
 };
 
-ItemsContainer.propTypes = {
+ItemsList.propTypes = {
   title: PropTypes.string,
-  itemsList: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
-export default ItemsContainer;
+export default ItemsList;
