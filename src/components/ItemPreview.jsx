@@ -8,7 +8,7 @@ import ItemPrice from "./ItemPrice";
 
 const ItemPreview = ({ item }) => {
   const { id, title, image, price, rating } = item;
-  const itemPageLink = `item/${id}`;
+  const itemPageLink = `/item/${id}`;
 
   return (
     <div className="item-preview">
