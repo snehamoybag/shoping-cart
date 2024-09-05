@@ -1,10 +1,11 @@
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "./components/Header";
-import { Outlet } from "react-router-dom";
 import dummyData from "./data/dummyData";
 
 const App = () => {
   return (
     <>
+      <ScrollRestoration />
       <Header />
       <Outlet context={dummyData} />
     </>
