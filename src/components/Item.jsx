@@ -9,14 +9,7 @@ const Item = ({ item }) => {
 
   return (
     <section className="item">
-      <div className="item__rating-wrapper">
-        <Rating rating={rating.rate} />
-        <p className="item-info__rating-count">
-          <span className="sr-only"> from</span>
-          <span> ({rating.count})</span>
-          <span className="sr-only"> ratings</span>
-        </p>
-      </div>
+      <Rating rating={rating.rate} ratingCount={rating.count} />
       <h1 className="item__name">{title}</h1>
       <div className="item__hero">
         <div className="item__img-wrapper">

@@ -3,14 +3,9 @@
   background-color: var(--clr-neutral-100);
 }
 
-.item__rating-wrapper {
-  display: inline-flex;
-  align-items: center;
-}
-
 .item__name {
   font-size: 1.75rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .item__hero {

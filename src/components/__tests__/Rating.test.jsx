@@ -3,7 +3,25 @@ import { cleanup, render, screen } from "@testing-library/react";
 import Rating from "../Rating";
 
 describe("Rating", () => {
-  const getRatingEl = () => screen.getByRole("paragraph");
+  const getRatingEl = () => screen.queryByTestId("rating");
+  const getCountEl = () => screen.queryByTestId("rating-count");
+
+  test("renders rating and rating count when both of them are provided", () => {
+    render(<Rating rating={3} ratingCount={500} />);
+
+    const ratingEl = getRatingEl();
+    const countEl = getCountEl();
+
+    expect(ratingEl).toBeInTheDocument();
+    expect(countEl).toBeInTheDocument();
+  });
+
+  test("does not render rating count if 'ratingCount' is not provided", () => {
+    render(<Rating rating={3.5} />);
+
+    const ratingCountEl = screen.queryByTestId("rating-count");
+    expect(ratingCountEl).not.toBeInTheDocument();
+  });
 
   test("has bad rating styles when rating is bellow 2", () => {
     render(<Rating rating={1.9} />);

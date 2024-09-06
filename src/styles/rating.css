@@ -1,6 +1,12 @@
 .rating {
   display: inline-flex;
   align-items: center;
+  gap: 0.25em;
+}
+
+.rating__rate {
+  display: inline-flex;
+  align-items: center;
   padding: 0.25em 0.35em;
   text-align: center;
   font-size: 0.875rem; /* 14px */
@@ -8,7 +14,7 @@
   border-radius: 0.25rem;
 }
 
-.rating::after {
+.rating__rate::after {
   --size: 0.75em;
 
   content: "";
@@ -20,14 +26,18 @@
   background-size: contain;
 }
 
-.rating.good {
+.rating__count {
+  opacity: 0.75;
+}
+
+.rating__rate.good {
   background-color: hsla(100, 100%, 25%, 1);
 }
 
-.rating.decent {
+.rating__rate.decent {
   background-color: hsla(35, 100%, 50%, 1);
 }
 
-.rating.bad {
+.rating__rate.bad {
   background-color: hsla(0, 100%, 25%, 1);
 }

@@ -1,7 +1,8 @@
 import "../styles/rating.css";
 import PropTypes from "prop-types";
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, ratingCount }) => {
+  const isCountAvailable = ratingCount !== undefined && ratingCount !== null;
   let ratingStyle = "";
 
   if (rating < 2) {
@@ -13,16 +14,24 @@ const Rating = ({ rating }) => {
   }
 
   return (
-    <p className={`rating ${ratingStyle}`}>
-      <span className="sr-only">rating: </span>
-      {rating.toFixed(1)}
-      <span className="sr-only">stars</span>
-    </p>
+    <div className="rating">
+      <p className={`rating__rate ${ratingStyle}`} data-testid="rating">
+        <span className="sr-only">rating: </span>
+        {rating.toFixed(1)}
+        <span className="sr-only">stars</span>
+      </p>
+      {isCountAvailable && (
+        <p className="rating__count" data-testid="rating-count">
+          <span className="sr-only">rating count: </span>({ratingCount})
+        </p>
+      )}
+    </div>
   );
 };
 
 Rating.propTypes = {
   rating: PropTypes.number.isRequired,
+  ratingCount: PropTypes.number,
 };
 
 export default Rating;
