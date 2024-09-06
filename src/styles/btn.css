@@ -19,7 +19,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
   aspect-ratio: 1/1;
   border: 1px solid var(--clr-neutral-700);
 }
@@ -45,11 +44,8 @@
 .btn--cta {
   text-transform: uppercase;
   padding: 1em 2.5em;
-  border-radius: 0.5rem;
-}
-
-.btn--outline {
   border: 2px solid var(--clr-neutral-700);
+  border-radius: 0.5rem;
 }
 
 .btn--cta {

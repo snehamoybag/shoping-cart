@@ -1,6 +1,6 @@
 import "../styles/buy-item.css";
 import PropTypes from "prop-types";
-import ItemQuantity from "./ItemQauntity";
+import ItemQuantity from "./ItemQuantity";
 
 const BuyItem = ({ price }) => {
   return (

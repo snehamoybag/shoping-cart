@@ -1,3 +1,7 @@
+.item-quantity {
+  max-width: 15rem;
+}
+
 .item-quantity__title {
   font-size: 0.875rem;
   text-align: center;
@@ -5,15 +9,17 @@
 }
 
 .item-quantity__btn-input-wrapper {
-  display: flex;
-  gap: 0.25rem;
-  width: 10rem;
-  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 0.25rem;
+  align-items: stretch;
+  margin-top: 0.25rem;
 }
 
 .item-quantity__input {
   width: 100%;
   height: 100%;
   text-align: center;
+  background-color: transparent;
   border: 1px solid var(--clr-neutral-700);
 }

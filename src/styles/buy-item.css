@@ -8,5 +8,9 @@
 .buy-item__btns-wrapper {
   display: grid;
   gap: 0.625rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+.buy-item .item-quantity__btn-input-wrapper {
+  height: 2.5rem;
 }
