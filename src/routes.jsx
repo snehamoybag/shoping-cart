@@ -1,6 +1,7 @@
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
 import ItemPage from "./pages/ItemPage.jsx";
 
 const routes = [
@@ -15,6 +16,10 @@ const routes = [
       {
         path: "about",
         element: <AboutPage />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
       },
       {
         path: "item/:itemId",
