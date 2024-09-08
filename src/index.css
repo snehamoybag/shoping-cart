@@ -8,12 +8,16 @@
   --clr-neutral-200-hsl: 53, 100%, 93%;
   --clr-neutral-700-hsl: 0, 0%, 5%;
 
+  --clr-danger-hsl: 360, 100%, 50%;
+
   --clr-primary-200: hsl(var(--clr-primary-200-hsl));
   --clr-primary-400: hsl(var(--clr-primary-400-hsl));
 
   --clr-neutral-100: hsl(var(--clr-neutral-100-hsl));
   --clr-neutral-200: hsl(var(--clr-neutral-200-hsl));
   --clr-neutral-700: hsl(var(--clr-neutral-700-hsl));
+
+  --clr-danger: hsl(var(--clr-danger-hsl));
 }
 
 /* some basic css reset and core stylings */

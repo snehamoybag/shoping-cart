@@ -23,10 +23,14 @@ const ItemQuantity = ({
         <label className="item-quantity__label">
           <span className="sr-only">type a quantity</span>
           <input
-            type="text"
+            type="number"
             className="item-quantity__input"
+            name="quantity_field"
             value={quantity}
             onChange={handleInputChange}
+            min="1"
+            max="10"
+            required
           />
         </label>
         <button
