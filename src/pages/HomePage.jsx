@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import ItemsList from "../components/ItemsList";
 
 const HomePage = () => {
-  const itemsData = useOutletContext();
+  const { itemsData } = useOutletContext();
 
   return (
     <main>

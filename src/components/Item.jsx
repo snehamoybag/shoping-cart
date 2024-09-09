@@ -4,7 +4,7 @@ import Rating from "./Rating";
 import ItemPrice from "./ItemPrice";
 import BuyItem from "./BuyItem";
 
-const Item = ({ item }) => {
+const Item = ({ item, handleAddToCart, handleBuyItem }) => {
   const { image, title, description, category, price, rating } = item;
 
   return (
@@ -16,7 +16,11 @@ const Item = ({ item }) => {
           <img src={image} alt={title} className="item__image" />
           <ItemPrice price={price} />
         </div>
-        <BuyItem name={name} price={price} />
+        <BuyItem
+          item={item}
+          handleAddToCart={handleAddToCart}
+          handleBuyItem={handleBuyItem}
+        />
       </div>
       <p className="item__paragraph">
         <span>Description:</span> {description}
@@ -30,6 +34,8 @@ const Item = ({ item }) => {
 
 Item.propTypes = {
   item: PropTypes.object.isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+  handleBuyItem: PropTypes.func.isRequired,
 };
 
 export default Item;

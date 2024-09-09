@@ -1,28 +1,56 @@
 import "../styles/buy-item.css";
 import PropTypes from "prop-types";
 import ItemQuantity from "./ItemQuantity";
+import { useState } from "react";
 
-const BuyItem = ({ price }) => {
+const BuyItem = ({ item, handleAddToCart, handleBuyItem }) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const incrementQuantity = () => {
+    if (quantity >= 10) return;
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity <= 1) return;
+    setQuantity((prevQuantity) => prevQuantity - 1);
+  };
+
+  const handleInputChange = (event) => {
+    event.target.reportValidity();
+    setQuantity(Number(event.target.value));
+  };
+
   return (
     <div className="buy-item">
       <ItemQuantity
-        quantity={1}
-        handleIncrement={() => {}}
-        handleDecrement={() => {}}
-        handleInputChange={() => {}}
+        quantity={quantity}
+        handleIncrement={incrementQuantity}
+        handleDecrement={decrementQuantity}
+        handleInputChange={(event) => handleInputChange(event)}
       />
       <div className="buy-item__btns-wrapper">
-        <button className="btn btn--outline">
-          Add to cart &middot; <span>${price.toFixed(2)}</span>
+        <button
+          type="button"
+          className="btn btn--outline"
+          onClick={() => {
+            handleAddToCart(item, quantity);
+          }}
+        >
+          Add to cart &middot; <span>${item.price.toFixed(2)}</span>
         </button>
-        <button className="btn btn--cta">Buy Now</button>
+        <button type="button" className="btn btn--cta" onClick={handleBuyItem}>
+          Buy Now
+        </button>
       </div>
     </div>
   );
 };
 
 BuyItem.propTypes = {
-  price: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+  handleBuyItem: PropTypes.func.isRequired,
 };
 
 export default BuyItem;

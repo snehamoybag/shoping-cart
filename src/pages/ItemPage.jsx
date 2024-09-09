@@ -6,17 +6,25 @@ import getMatchingItems from "../utils/getMatchingItems";
 import filterItems from "../utils/filterItems";
 
 const ItemPage = () => {
-  const items = useOutletContext();
+  const { itemsData, handleAddToCart } = useOutletContext();
 
   const { itemId } = useParams();
-  const item = getItemById(Number(itemId), items);
+  const item = getItemById(Number(itemId), itemsData);
 
-  const sameCategoryItems = getMatchingItems("category", item.category, items);
+  const sameCategoryItems = getMatchingItems(
+    "category",
+    item.category,
+    itemsData,
+  );
   const relatedItems = filterItems("id", item.id, sameCategoryItems); // do not show current item on related items
 
   return (
     <main>
-      <Item item={item} />
+      <Item
+        item={item}
+        handleAddToCart={handleAddToCart}
+        handleBuyItem={() => {}}
+      />
       <ItemsList title={"Related Products"} items={relatedItems} />
     </main>
   );
