@@ -5,7 +5,7 @@ import ItemQuantity from "./ItemQuantity";
 import Rating from "./Rating";
 import ItemPrice from "./ItemPrice";
 
-const CartItem = ({ item, quantity }) => {
+const CartItem = ({ item, quantity, handleRemoveItem }) => {
   const { id, image, title, category, rating, price } = item;
 
   const placeholderFunc = () => {};
@@ -30,7 +30,11 @@ const CartItem = ({ item, quantity }) => {
         </div>
       </div>
       <div className="cart-item__btns-wrapper">
-        <button type="button" className="btn btn--outline">
+        <button
+          type="button"
+          className="btn btn--outline"
+          onClick={() => handleRemoveItem(item.id)}
+        >
           Remove Item
         </button>
         <button type="button" className="btn btn--outline">
@@ -44,6 +48,7 @@ const CartItem = ({ item, quantity }) => {
 CartItem.propTypes = {
   item: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
+  handleRemoveItem: PropTypes.func.isRequired,
 };
 
 export default CartItem;

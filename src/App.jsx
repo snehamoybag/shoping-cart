@@ -47,11 +47,22 @@ const App = () => {
     navigateTo("/cart");
   };
 
+  const handleRemoveCartItem = (itemId) => {
+    setCartData((prevData) => {
+      const updatedData = getclonedData(prevData);
+      delete updatedData[itemId];
+
+      return updatedData;
+    });
+  };
+
   return (
     <>
       <ScrollRestoration />
       <Header />
-      <Outlet context={{ itemsData, cartData, handleAddToCart }} />
+      <Outlet
+        context={{ itemsData, cartData, handleAddToCart, handleRemoveCartItem }}
+      />
     </>
   );
 };
