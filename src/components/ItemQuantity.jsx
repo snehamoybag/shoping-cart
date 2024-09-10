@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 
 const ItemQuantity = ({
   quantity,
-  handleInputChange,
   handleIncrement,
   handleDecrement,
+  handleInputChange,
 }) => {
   return (
     <div className="item-quantity">
@@ -47,9 +47,9 @@ const ItemQuantity = ({
 
 ItemQuantity.propTypes = {
   quantity: PropTypes.number.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
   handleIncrement: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 export default ItemQuantity;

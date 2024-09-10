@@ -16,9 +16,9 @@ const BuyItem = ({ item, handleAddToCart, handleBuyItem }) => {
     setQuantity((prevQuantity) => prevQuantity - 1);
   };
 
-  const handleInputChange = (event) => {
+  const handleQuantityInputChange = (event) => {
     event.target.reportValidity();
-    setQuantity(Number(event.target.value));
+    setQuantity(parseInt(Number(event.target.value)));
   };
 
   return (
@@ -27,7 +27,7 @@ const BuyItem = ({ item, handleAddToCart, handleBuyItem }) => {
         quantity={quantity}
         handleIncrement={incrementQuantity}
         handleDecrement={decrementQuantity}
-        handleInputChange={(event) => handleInputChange(event)}
+        handleInputChange={handleQuantityInputChange}
       />
       <div className="buy-item__btns-wrapper">
         <button

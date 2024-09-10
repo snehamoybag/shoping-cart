@@ -7,7 +7,7 @@ const App = () => {
   const navigateTo = useNavigate();
   const [cartData, setCartData] = useState({});
 
-  const getclonedData = (data) => JSON.parse(JSON.stringify(data));
+  const getClonedData = (data) => JSON.parse(JSON.stringify(data));
 
   const handleAddToCart = (item, quantity = 1) => {
     if (quantity < 1 || quantity > 10) return;
@@ -19,7 +19,7 @@ const App = () => {
       );
 
       if (isItemAlreadyInCart) {
-        const updatedData = getclonedData(prevData);
+        const updatedData = getClonedData(prevData);
         let newQuantity = quantity + updatedData[item.id].quantity;
 
         if (newQuantity > 10) newQuantity = 10; // do not allow more than 10
@@ -29,7 +29,7 @@ const App = () => {
       }
 
       if (!isItemAlreadyInCart) {
-        const newData = getclonedData(prevData);
+        const newData = getClonedData(prevData);
 
         newData[item.id] = {
           item: item,
@@ -47,22 +47,38 @@ const App = () => {
     navigateTo("/cart");
   };
 
+  const updateCartItemQuantity = (itemId, newQuantity) => {
+    if (newQuantity < 1 || newQuantity > 10) return;
+
+    setCartData((prevData) => {
+      const updateData = getClonedData(prevData);
+      updateData[itemId].quantity = newQuantity;
+      return updateData;
+    });
+  };
+
   const handleRemoveCartItem = (itemId) => {
     setCartData((prevData) => {
-      const updatedData = getclonedData(prevData);
+      const updatedData = getClonedData(prevData);
       delete updatedData[itemId];
 
       return updatedData;
     });
   };
 
+  const outletContexts = {
+    itemsData,
+    cartData,
+    handleAddToCart,
+    updateCartItemQuantity,
+    handleRemoveCartItem,
+  };
+
   return (
     <>
       <ScrollRestoration />
       <Header />
-      <Outlet
-        context={{ itemsData, cartData, handleAddToCart, handleRemoveCartItem }}
-      />
+      <Outlet context={outletContexts} />
     </>
   );
 };
