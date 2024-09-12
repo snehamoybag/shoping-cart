@@ -2,12 +2,11 @@ import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import itemsData from "./data/dummyData";
 import { useState } from "react";
+import deepClone from "./utils/deepClone";
 
 const App = () => {
   const navigateTo = useNavigate();
   const [cartData, setCartData] = useState({});
-
-  const getClonedData = (data) => JSON.parse(JSON.stringify(data));
 
   const handleAddToCart = (item, quantity = 1) => {
     if (quantity < 1 || quantity > 10) return;
@@ -19,7 +18,7 @@ const App = () => {
       );
 
       if (isItemAlreadyInCart) {
-        const updatedData = getClonedData(prevData);
+        const updatedData = deepClone(prevData);
         let newQuantity = quantity + updatedData[item.id].quantity;
 
         if (newQuantity > 10) newQuantity = 10; // do not allow more than 10
@@ -29,7 +28,7 @@ const App = () => {
       }
 
       if (!isItemAlreadyInCart) {
-        const newData = getClonedData(prevData);
+        const newData = deepClone(prevData);
 
         newData[item.id] = {
           item: item,
@@ -51,7 +50,7 @@ const App = () => {
     if (newQuantity < 1 || newQuantity > 10) return;
 
     setCartData((prevData) => {
-      const updateData = getClonedData(prevData);
+      const updateData = deepClone(prevData);
       updateData[itemId].quantity = newQuantity;
       return updateData;
     });
@@ -59,7 +58,7 @@ const App = () => {
 
   const handleRemoveCartItem = (itemId) => {
     setCartData((prevData) => {
-      const updatedData = getClonedData(prevData);
+      const updatedData = deepClone(prevData);
       delete updatedData[itemId];
 
       return updatedData;
