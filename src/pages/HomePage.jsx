@@ -1,5 +1,4 @@
 import { useOutletContext } from "react-router-dom";
-import Hero from "../components/Hero";
 import ItemsList from "../components/ItemsList";
 
 const HomePage = () => {
@@ -7,7 +6,6 @@ const HomePage = () => {
 
   return (
     <main>
-      <Hero />
       <ItemsList items={itemsData} />
     </main>
   );
