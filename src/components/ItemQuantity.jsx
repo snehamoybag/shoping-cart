@@ -25,12 +25,13 @@ const ItemQuantity = ({
           <input
             type="number"
             className="item-quantity__input"
-            name="quantity_field"
+            name="item-quantity"
             value={quantity}
             onChange={handleInputChange}
             min="1"
             max="10"
             required
+            data-testid="item-quantity-input"
           />
         </label>
         <button
@@ -47,9 +48,9 @@ const ItemQuantity = ({
 
 ItemQuantity.propTypes = {
   quantity: PropTypes.number.isRequired,
-  handleIncrement: PropTypes.func.isRequired,
-  handleDecrement: PropTypes.func.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func,
+  handleDecrement: PropTypes.func,
+  handleInputChange: PropTypes.func,
 };
 
 export default ItemQuantity;
