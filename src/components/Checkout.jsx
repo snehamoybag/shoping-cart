@@ -1,10 +1,13 @@
+import "../styles/checkout.css";
 import PropTypes from "prop-types";
 
 const Checkout = ({ totalPrice, handleCheckout }) => {
   return (
-    <div>
-      <p>Total price of all items: ${totalPrice.toFixed(2)}</p>
-      <button type="button" name="btn-checkout" onClick={handleCheckout}>
+    <div className="checkout">
+      <p className="checkout__paragraph">
+        Total price of all items: <strong>${totalPrice.toFixed(2)}</strong>
+      </p>
+      <button type="button" className="btn btn--cta" onClick={handleCheckout}>
         Checkout
       </button>
     </div>
