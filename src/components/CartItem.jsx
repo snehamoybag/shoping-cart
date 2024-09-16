@@ -8,7 +8,7 @@ import { useState } from "react";
 const CartItem = ({ item, quantity, updateItemQuantity, handleRemoveItem }) => {
   const { id, image, title, category, rating, price } = item;
 
-  // initializes state once when componentis first mounted,
+  // initializes state once when component is first mounted,
   // so state doesn't get effected even when quantity changes later on
   // ** this is an anti-pattern **
   // TODO: find a better solution
@@ -55,8 +55,13 @@ const CartItem = ({ item, quantity, updateItemQuantity, handleRemoveItem }) => {
           <h2 className="cart-item__name">{title}</h2>
           <p className="cart-item__paragraph">{category}</p>
           <Rating rating={rating.rate} ratingCount={rating.count} />
-          <p className="cart-item__paragraph">Quantity: {quantity}</p>
-          <p className="cart-item__paragraph price">
+          <p className="cart-item__paragraph" data-testid="cart-item-quantity">
+            Quantity: {quantity}
+          </p>
+          <p
+            className="cart-item__paragraph price"
+            data-testid="cart-item-price"
+          >
             Total Price: <span>${totalPrice}</span>
           </p>
         </div>
@@ -80,8 +85,8 @@ const CartItem = ({ item, quantity, updateItemQuantity, handleRemoveItem }) => {
 CartItem.propTypes = {
   item: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
-  updateItemQuantity: PropTypes.func.isRequired,
-  handleRemoveItem: PropTypes.func.isRequired,
+  updateItemQuantity: PropTypes.func,
+  handleRemoveItem: PropTypes.func,
 };
 
 export default CartItem;
