@@ -65,6 +65,14 @@ const App = () => {
     });
   };
 
+  const getNumberOfItemsInCart = () => {
+    const itemsData = Object.values(cartData);
+
+    return itemsData.reduce((totalItems, itemData) => {
+      return totalItems + itemData.quantity;
+    }, 0);
+  };
+
   const outletContexts = {
     itemsData,
     cartData,
@@ -76,7 +84,7 @@ const App = () => {
   return (
     <>
       <ScrollRestoration />
-      <Header />
+      <Header numOfItemsInCart={getNumberOfItemsInCart()} />
       <Outlet context={outletContexts} />
     </>
   );

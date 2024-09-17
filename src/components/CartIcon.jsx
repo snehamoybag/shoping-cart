@@ -1,15 +1,27 @@
 import "../styles/cart-icon.css";
 import "../styles/sr-only.css";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const CartIcon = () => {
+const CartIcon = ({ numOfItems = 0 }) => {
   return (
-    <Link to="/cart">
-      <div className="cart-icon">
-        <span className="sr-only">shopping cart</span>
-      </div>
-    </Link>
+    <div className="cart-icon">
+      <p className="sr-only">shopping cart</p>
+      {numOfItems > 0 && (
+        <p
+          className="cart-icon__number"
+          aria-live="polite"
+          data-testid="number-of-cart-items"
+        >
+          <span className="sr-only">number of items in cart: </span>
+          {numOfItems}
+        </p>
+      )}
+    </div>
   );
+};
+
+CartIcon.propTypes = {
+  numOfItems: PropTypes.number,
 };
 
 export default CartIcon;

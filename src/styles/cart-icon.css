@@ -1,8 +1,22 @@
 .cart-icon {
-  --size: 1.6rem;
+  --size: 2rem;
   width: var(--size);
   height: var(--size);
   background-image: url("../assets/icons/shopping_cart.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  position: relative;
+}
+
+.cart-icon__number {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.25em 0.5em;
+  color: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-200);
+  border: 2px solid var(--clr-neutral-700);
+  border-radius: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
 }
