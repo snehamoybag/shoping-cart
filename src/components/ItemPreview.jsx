@@ -19,7 +19,7 @@ const ItemPreview = ({ item }) => {
         <Rating rating={rating.rate} />
       </div>
       <Link to={itemPageLink}>
-        <h2 className="item-preview__name">{getTruncateString(title, 30)}</h2>
+        <h2 className="item-preview__name">{getTruncateString(title, 50)}</h2>
       </Link>
       <ItemPrice price={price} />
     </div>
