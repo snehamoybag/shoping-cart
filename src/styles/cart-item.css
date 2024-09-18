@@ -1,4 +1,5 @@
 .cart-item {
+  display: grid;
   background-color: var(--clr-neutral-100);
   outline: 1px solid var(--clr-neutral-700);
   outline-offset: -1px;
@@ -6,7 +7,7 @@
 
 .cart-item__img-info-wrapper {
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 30% 1fr;
   align-items: center;
   gap: 0.5rem 1rem;
   padding: 1em;
@@ -37,6 +38,7 @@
 }
 
 .cart-item__btns-wrapper {
+  align-self: end;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }

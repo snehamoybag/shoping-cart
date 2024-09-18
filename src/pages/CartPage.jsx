@@ -1,3 +1,4 @@
+import "../styles/cart.css";
 import { useOutletContext } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import Checkout from "../components/Checkout";
@@ -26,8 +27,8 @@ const CartPage = () => {
 
   return (
     <main className="cart">
-      <h1>Yout Cart</h1>
-      {itemsList}
+      <h1 className="cart__title">Your Cart</h1>
+      <div className="cart__items">{itemsList}</div>
       {totalPrice > 0 && (
         <Checkout totalPrice={totalPrice} handleCheckout={() => {}} />
       )}

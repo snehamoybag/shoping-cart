@@ -1,0 +1,28 @@
+.cart__title,
+.cart__items {
+  background-color: var(--clr-neutral-100);
+  padding: 1em;
+}
+
+.cart__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.cart__items {
+  --min-col-width: 15rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
+  gap: 1rem;
+}
+
+.cart > .checkout {
+  margin-top: 3rem;
+}
+
+@media (min-width: 60em) {
+  .cart__items {
+    --min-col-width: 25rem;
+  }
+}

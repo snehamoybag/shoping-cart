@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ItemQuantity from "./ItemQuantity";
 import Rating from "./Rating";
 import { useState } from "react";
+import getTruncateString from "../utils/getTruncateString";
 
 const CartItem = ({ item, quantity, updateItemQuantity, handleRemoveItem }) => {
   const { id, image, title, category, rating, price } = item;
@@ -52,7 +53,7 @@ const CartItem = ({ item, quantity, updateItemQuantity, handleRemoveItem }) => {
           />
         </div>
         <div className="cart-item__info-wrapper">
-          <h2 className="cart-item__name">{title}</h2>
+          <h2 className="cart-item__name">{getTruncateString(title, 45)}</h2>
           <p className="cart-item__paragraph">{category}</p>
           <Rating rating={rating.rate} ratingCount={rating.count} />
           <p className="cart-item__paragraph" data-testid="cart-item-quantity">

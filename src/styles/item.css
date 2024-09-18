@@ -3,6 +3,11 @@
   background-color: var(--clr-neutral-100);
 }
 
+.item__container {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
 .item__name {
   font-size: 1.75rem;
   margin-top: 0.25rem;
@@ -31,6 +36,7 @@
 }
 
 .item__paragraph {
+  max-width: 65ch;
   font-size: 1.25rem;
   margin-top: 1rem;
 }
