@@ -1,0 +1,28 @@
+.error-page {
+  display: grid;
+  align-items: center;
+}
+
+.error-page__content {
+  padding: 2em;
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.error-page__title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.error-page__link {
+  display: block;
+  color: var(--clr-neutral-700);
+  text-underline-offset: 0.25em;
+  margin-top: 2rem;
+}
+
+.error-page__link:active {
+  color: var(--clr-primary-400);
+}

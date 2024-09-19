@@ -4,12 +4,25 @@ import ItemsList from "../components/ItemsList";
 import getItemById from "../utils/getItemById";
 import getMatchingItems from "../utils/getMatchingItems";
 import filterItems from "../utils/filterItems";
+import ErrorElement from "../components/ErrrorElement";
 
 const ItemPage = () => {
   const { itemsData, handleAddToCart } = useOutletContext();
 
   const { itemId } = useParams();
   const item = getItemById(Number(itemId), itemsData);
+
+  // if item does not exist in items data, return not found component
+  if (!item) {
+    return (
+      <ErrorElement
+        heading={"Error 404: Item not found!"}
+        description={
+          "Oops... The product you are looking for does not exist or has been removed."
+        }
+      />
+    );
+  }
 
   const sameCategoryItems = getMatchingItems(
     "category",
