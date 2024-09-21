@@ -1,0 +1,20 @@
+.loading--circle {
+  --transform-val: translate(-50%, -50%);
+
+  width: min(10vw, 5rem);
+  aspect-ratio: 1/1;
+  border: 5px solid var(--clr-neutral-700);
+  border-top-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: var(--transform-val);
+  animation: rotate 800ms ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: var(--transform-val) rotate(360deg);
+  }
+}

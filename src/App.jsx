@@ -1,10 +1,21 @@
 import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
-import itemsData from "./data/dummyData";
+// import itemsData from "./data/dummyData";
 import { useEffect, useState } from "react";
 import deepClone from "./utils/deepClone";
+import useItemsData from "./hooks/useItemsData";
+import CircleLoading from "./components/CircleLoading";
+import ErrorElement from "./components/ErrrorElement";
 
 const App = () => {
+  const {
+    data: itemsData,
+    error: itemsDataError,
+    isLoading: isItemsDataLoading,
+  } = useItemsData();
+
+  console.log(typeof itemsDataError);
+
   const cartDataStorageKey = "cart-data";
   const [cartData, setCartData] = useState(
     JSON.parse(localStorage.getItem(cartDataStorageKey)) || {},
@@ -74,9 +85,9 @@ const App = () => {
   };
 
   const getNumberOfItemsInCart = () => {
-    const itemsData = Object.values(cartData);
+    const items = Object.values(cartData);
 
-    return itemsData.reduce((totalItems, itemData) => {
+    return items.reduce((totalItems, itemData) => {
       return totalItems + itemData.quantity;
     }, 0);
   };
@@ -93,7 +104,21 @@ const App = () => {
     <>
       <ScrollRestoration />
       <Header numOfItemsInCart={getNumberOfItemsInCart()} />
-      <Outlet context={outletContexts} />
+      {isItemsDataLoading && <CircleLoading />}
+
+      {itemsDataError && (
+        <ErrorElement
+          heading={itemsDataError.message}
+          description={
+            "Oops... something went worng while fetching data from server. Please try again later."
+          }
+          returnLinkText="Try Again"
+        />
+      )}
+
+      {!isItemsDataLoading && !itemsDataError && (
+        <Outlet context={outletContexts} />
+      )}
     </>
   );
 };
