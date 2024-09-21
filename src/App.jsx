@@ -1,13 +1,21 @@
 import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import itemsData from "./data/dummyData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import deepClone from "./utils/deepClone";
 
 const App = () => {
-  const navigateTo = useNavigate();
-  const [cartData, setCartData] = useState({});
+  const cartDataStorageKey = "cart-data";
+  const [cartData, setCartData] = useState(
+    JSON.parse(localStorage.getItem(cartDataStorageKey)) || {},
+  );
 
+  // sync cart data with localStorage
+  useEffect(() => {
+    localStorage.setItem(cartDataStorageKey, JSON.stringify(cartData));
+  }, [cartData]);
+
+  const navigateTo = useNavigate();
   const handleAddToCart = (item, quantity = 1) => {
     if (quantity < 1 || quantity > 10) return;
 
